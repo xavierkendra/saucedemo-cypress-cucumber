@@ -9,16 +9,16 @@ Feature: Login no site da Sauce Labs
 
     Scenario: Login de um usuário inválido
     When efetuar o login de um usuário inválido
-    Then visualizo uma mensagem de erro
-    And permaneço na página inicial
+    Then exibe uma mensagem de erro de login
+    And deve permanecer na página inicial
 
     Scenario: Login de um usuário válido com senha inválida
     When efetuar login de um usuário válido com senha inválida
-    Then visualizo uma mensagem de erro
-    And permaneço na página inicial
+    Then exibe uma mensagem de erro de login
+    And deve permanecer na página inicial
 
     Scenario: Login de um usuário válido com senha válida
     When efetuar o login de um usuário válido com senha válida
-    Then serei direcionado para a página de produtos
+    Then deve direcionar para a página de produtos
 
 

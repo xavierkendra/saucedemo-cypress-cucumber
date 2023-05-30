@@ -7,6 +7,12 @@ import produtoPage from '../pageobjects/produtoPage';
 const login = new loginPage
 const produto = new produtoPage
 
+beforeEach(() => {
+    login.acessarSite();
+    login.efetuarLogin('standard_user', 'secret_sauce');
+
+})
+
 Given ("que estou na página inicial", () => {
     login.acessarSite();
 
@@ -25,16 +31,16 @@ When ("efetuar login de um usuário válido com senha inválida", () => {
     login.efetuarLogin('standard_user', 'invalid_password');
 })
 
-Then ("serei direcionado para a página de produtos", () => {
+Then ("deve direcionar para a página de produtos", () => {
     produto.validaPaginaProduto;
 })
 
-Then ("visualizo uma mensagem de erro", () => {
+Then ("exibe uma mensagem de erro de login", () => {
     login.validaMensagemErro;
 
 })
 
-Then ("permaneço na página inicial", () => {
+Then ("deve permanecer na página inicial", () => {
     login.validaPaginaInicial;
     
 })
